@@ -1,0 +1,39 @@
+{
+  "commands": [
+    {
+      "itemName": "OnkyoAVReceiver",
+      "action": "SendButtonPress",
+      "request": {
+        "verb": "post",
+        "body": "VolumeUp"
+      },
+      "deferNext": 800
+    },
+    {
+      "itemName": "OnkyoAVReceiver",
+      "action": "SendButtonPress",
+      "request": {
+        "verb": "POST",
+        "body": "VolumeUp"
+      },
+      "deferNext": 800
+    },
+    {
+      "itemName": "OnkyoAVReceiver",
+      "action": "SendButtonPress",
+      "request": {
+        "verb": "POST",
+        "body": "VolumeUp"
+      },
+      "deferNext": 800
+    },
+    {
+      "itemName": "RgbwColorZone1_Color",
+      "request": {
+        "verb": "POST",
+        "body": "500,50,100"
+      },
+      "deferNext": 800
+    }
+  ]
+}

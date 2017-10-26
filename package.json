@@ -1,18 +1,25 @@
 {
-  "name": "multi-ifttt-triggers",
+  "name": "ifttt-server",
   "version": "0.0.1",
-  "description": "Trigger multiple IFTTT services after receiving a request",
+  "description": "Joe's If This Than That Server",
   "main": "server.js",
   "scripts": {
+    "dev": "nodemon --inspect server.js",
     "start": "node server.js"
   },
   "dependencies": {
     "axios": "^0.17.0",
-    "express": "^4.14.0"
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.14.0",
+    "lodash": "^4.17.4"
   },
   "keywords": [
     "node",
     "express",
     "ifttt"
-  ]
+  ],
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
 }
