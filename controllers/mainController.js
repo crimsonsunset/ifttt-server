@@ -11,26 +11,8 @@ function _handleItem(req, res) {
 	const requester = req.headers.origin;
 	const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 
-	async function _callAxios(url, verb, body, deferNext) {
 
-
-		return new Promise((resolve, reject) => {
-
-			const time = 1500;
-			delay(async () => {
-				const promise = await axios[verb](url, body);
-				return resolve(promise)
-			}, deferNext);
-
-			// defer(() => {
-			// 	return resolve(`Done for ${'10'} ms`)
-
-			// }, 2000);
-		});
-
-	}
-
-	const makeCalls = (e, i) => {
+	function sendAndAwaitCall(e, i) {
 		const urlz = 'https://jsonplaceholder.typicode.com/posts/1';
 		const {
 			itemName,
@@ -43,28 +25,27 @@ function _handleItem(req, res) {
 		} = e;
 
 		// const d = _callAxios(baseURL + itemName + action, verb, body);
-		return _callAxios(urlz, 'get', body, deferNext);
 
-		// return axios['get'](urlz, body);
-		// return await axios[lowerCase(verb)](urlz, body);
-	};
+		return new Promise((resolve, reject) => {
 
-	let wrapped = catchErrors(makeCalls);
+			const time = 1500;
+			delay(() => {
+				const promise = axios['get'](urlz, body);
+				console.log('about to resolvezz', body);
+				return resolve(promise)
+			}, deferNext);
+		});
+	}
 
-	let promiseArr = map(commands, wrapped);
+	let wrapped = catchErrors(sendAndAwaitCall);
 
-	
-
-
-	console.log('z')
-	console.log(promiseArr)
-
-	Promise.all(promiseArr).then((e, i) => {
-		console.log('all done here')
-		console.log(e[0].data.title);
-	})
-
-	return res.json({status: 'worked'})
+	(async  () => {
+		for (let i = 0; i < commands.length; i++) {
+			await wrapped(commands[i]);
+		}
+		console.log('all done making requests');
+		return res.json({status: 'worked'})
+	})();
 
 }
 

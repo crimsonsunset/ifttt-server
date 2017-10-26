@@ -7,25 +7,25 @@
         "verb": "post",
         "body": "VolumeUp"
       },
-      "deferNext": 800
+      "deferNext": 1500
     },
     {
       "itemName": "OnkyoAVReceiver",
       "action": "SendButtonPress",
       "request": {
         "verb": "POST",
-        "body": "VolumeUp"
+        "body": "VolumeDown"
       },
-      "deferNext": 800
+      "deferNext": 2000
     },
     {
       "itemName": "OnkyoAVReceiver",
       "action": "SendButtonPress",
       "request": {
         "verb": "POST",
-        "body": "VolumeUp"
+        "body": "VolumeLeft"
       },
-      "deferNext": 800
+      "deferNext": 3000
     },
     {
       "itemName": "RgbwColorZone1_Color",
@@ -33,7 +33,7 @@
         "verb": "POST",
         "body": "500,50,100"
       },
-      "deferNext": 800
+      "deferNext": 1000
     }
   ]
 }
