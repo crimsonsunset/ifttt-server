@@ -28,5 +28,7 @@ function catchErrors(fn) {
 }
 
 module.exports = {
-	isValidRequest
+	isValidRequest,
+	validateRequest,
+	catchErrors,
 }
