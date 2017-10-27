@@ -19,6 +19,7 @@
     "express",
     "ifttt"
   ],
+  "engines" : { "node" : ">=8.5" },
   "devDependencies": {
     "nodemon": "^1.12.1"
   }
