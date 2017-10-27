@@ -9,8 +9,9 @@ app.use(bodyParser.json());
 const {isValidRequest, validateRequest} = require('./util/helpers');
 const routes = require("./controllers/mainController.js");
 
-process.env.domains = JSON.parse(process.env.ALLOWED_DOMAINS);
-process.env.domains = JSON.parse(process.env.ALLOWED_DOMAINS);
+//todo: this is breaking glitch
+// process.env.domains = JSON.parse(process.env.ALLOWED_DOMAINS);
+// process.env.domains = JSON.parse(process.env.ALLOWED_DOMAINS);
 
 const port = process.env.PORT || 4000;
 app.set('port', (port));
