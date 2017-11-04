@@ -5,35 +5,64 @@
       "action": "SendButtonPress",
       "request": {
         "verb": "post",
-        "body": "VolumeUp"
+        "body": "PowerOff"
       },
-      "deferNext": 1500
+      "deferNext": 0
     },
     {
       "itemName": "OnkyoAVReceiver",
       "action": "SendButtonPress",
       "request": {
-        "verb": "POST",
-        "body": "VolumeDown"
+        "verb": "post",
+        "body": "PowerOn"
       },
-      "deferNext": 2000
+      "deferNext": 1000
     },
     {
       "itemName": "OnkyoAVReceiver",
       "action": "SendButtonPress",
       "request": {
-        "verb": "POST",
-        "body": "VolumeLeft"
+        "verb": "post",
+        "body": "Setup"
       },
       "deferNext": 3000
     },
     {
-      "itemName": "RgbwColorZone1_Color",
+      "itemName": "OnkyoAVReceiver",
+      "action": "SendButtonPress",
       "request": {
-        "verb": "POST",
-        "body": "500,50,100"
+        "verb": "post",
+        "body": "DirectionDown"
       },
-      "deferNext": 1000
+      "deferNext": 300,
+      "repeat": 7
+    },
+    {
+      "itemName": "OnkyoAVReceiver",
+      "action": "SendButtonPress",
+      "request": {
+        "verb": "post",
+        "body": "DirectionRight"
+      },
+      "deferNext": 300
+    },
+    {
+      "itemName": "OnkyoAVReceiver",
+      "action": "SendButtonPress",
+      "request": {
+        "verb": "post",
+        "body": "Setup"
+      },
+      "deferNext": 300
+    },
+    {
+      "itemName": "VizioTV",
+      "action": "SendButtonPress",
+      "request": {
+        "verb": "post",
+        "body": "InputHdmi5"
+      },
+      "deferNext": 2300
     }
   ]
 }

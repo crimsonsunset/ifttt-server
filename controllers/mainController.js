@@ -1,19 +1,18 @@
 const router = require("express").Router();
 const axios = require('axios');
-const {delay, lowerCase, map} = require('lodash');
-const {catchErrors} = require('../util/helpers');
+const {delay} = require('lodash');
+const {catchErrors, createRequestArray} = require('../util/helpers');
 const baseURL = process.env.NGROK_URL;
 
 router.get('/test/', function (req, res) {
     const {itemName, action} = req.body;
     const requester = req.headers.origin;
     const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-    console.log('asd', fullUrl, requester);
+    // console.log('asd', fullUrl, requester);
     res.json({status: 'worked'})
 });
 
-
-router.post('/:name', (req, res)=>{
+router.post('/:name', (req, res) => {
     const axiosConfig = {
         headers: {
             'Content-Type': 'text/plain'
@@ -21,12 +20,15 @@ router.post('/:name', (req, res)=>{
     };
 
     const {name} = req.params;
-    const {commands} = req.body;
+    let {commands} = req.body;
+
+    const newCommands = createRequestArray(commands);
 
     // const requester = req.headers.origin;
     // const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 
     function sendAndAwaitCall(e, i) {
+        // console.log('sendz', e, i)
         const urlz = 'https://postman-echo.com/delay/3';
         const {
             itemName,
@@ -48,6 +50,7 @@ router.post('/:name', (req, res)=>{
                 const reqURL = `${baseURL}${name}/${suffix}`;
                 const promise = axios[verb](reqURL, body, axiosConfig);
                 return resolve(promise)
+                // return resolve({})
             }, deferNext);
         });
     }
@@ -55,14 +58,13 @@ router.post('/:name', (req, res)=>{
     let wrapped = catchErrors(sendAndAwaitCall);
 
     (async () => {
-        for (let i = 0; i < commands.length; i++) {
-            await wrapped(commands[i]);
+        for (let i = 0; i < newCommands.length; i++) {
+            await wrapped(newCommands[i]);
         }
         console.log('all done making requests');
         return res.json({status: 'worked'})
     })();
 
 });
-
 
 module.exports = router;

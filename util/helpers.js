@@ -1,3 +1,5 @@
+const {delay, lowerCase, map, times, constant, compact} = require('lodash');
+
 // function isValidRequest(requester){
 // 	return true
 // }
@@ -27,8 +29,23 @@ function catchErrors(fn) {
     }
 }
 
+
+function createRequestArray(inArr) {
+    let newArr=[];
+    inArr.forEach((e, i) => {
+        const {repeat} = e;
+        if (repeat) {
+            newArr.push(...times(repeat, constant(e)))
+        } else {
+            newArr.push(e)
+        }
+    });
+    return newArr;
+}
+
 module.exports = {
     isValidRequest,
     validateRequest,
     catchErrors,
-}
+    createRequestArray: createRequestArray
+};
