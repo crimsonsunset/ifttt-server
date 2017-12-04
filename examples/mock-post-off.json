@@ -1,6 +1,15 @@
 {
   "commands": [
     {
+      "itemName": "VizioTV",
+      "action": "SendButtonPress",
+      "request": {
+        "verb": "post",
+        "body": "InputHdmi4"
+      },
+      "deferNext": 1300
+    },
+    {
       "itemName": "OnkyoAVReceiver",
       "action": "SendButtonPress",
       "request": {
@@ -61,15 +70,6 @@
       "action": "SendButtonPress",
       "request": {
         "verb": "post",
-        "body": "DirectionRight"
-      },
-      "deferNext": 300
-    },
-    {
-      "itemName": "OnkyoAVReceiver",
-      "action": "SendButtonPress",
-      "request": {
-        "verb": "post",
         "body": "DirectionDown"
       },
       "deferNext": 300,
@@ -80,7 +80,7 @@
       "action": "SendButtonPress",
       "request": {
         "verb": "post",
-        "body": "DirectionRight"
+        "body": "DirectionLeft"
       },
       "deferNext": 300
     },
@@ -90,15 +90,6 @@
       "request": {
         "verb": "post",
         "body": "Setup"
-      },
-      "deferNext": 300
-    },
-    {
-      "itemName": "VizioTV",
-      "action": "SendButtonPress",
-      "request": {
-        "verb": "post",
-        "body": "InputHdmi5"
       },
       "deferNext": 300
     }

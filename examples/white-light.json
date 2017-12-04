@@ -1,0 +1,12 @@
+{
+  "commands": [
+    {
+      "itemName": "fan_light_colorz",
+      "request": {
+        "verb": "post",
+        "body": "ON"
+      },
+      "deferNext": 300
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "commands": [
+    {
+      "itemName": "TiVoDVR",
+      "action": "SendButtonPress",
+      "request": {
+        "verb": "post",
+        "body": "Advance"
+      },
+      "deferNext": 800,
+      "repeat": 8
+    },
+    {
+      "itemName": "TiVoDVR",
+      "action": "SendButtonPress",
+      "request": {
+        "verb": "post",
+        "body": "Replay"
+      },
+      "deferNext": 500,
+      "repeat": 5
+    }
+  ]
+}

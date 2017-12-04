@@ -1,0 +1,50 @@
+{
+  "commands": [
+    {
+      "itemName": "PaulSFireTV",
+      "action": "SendButtonPress",
+      "request": {
+        "verb": "post",
+        "body": "Play"
+      },
+      "deferNext": 300
+    },
+    {
+      "itemName": "ArrisDVR",
+      "action": "SendButtonPress",
+      "request": {
+        "verb": "post",
+        "body": "Play"
+      },
+      "deferNext": 300
+    },
+    {
+      "itemName": "SonyPS4",
+      "action": "SendButtonPress",
+      "request": {
+        "verb": "post",
+        "body": "Play"
+      },
+      "deferNext": 300
+    },
+    {
+      "itemName": "SonyPS4",
+      "action": "SendButtonPress",
+      "request": {
+        "verb": "post",
+        "body": "Cross"
+      },
+      "deferNext": 300
+    },
+    {
+      "itemName": "Tivo",
+      "action": "SendButtonPress",
+      "request": {
+        "verb": "post",
+        "body": "Play"
+      },
+      "deferNext": 300
+    }
+
+  ]
+}
