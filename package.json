@@ -12,7 +12,7 @@
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.21"
   },
   "keywords": [
     "node",
